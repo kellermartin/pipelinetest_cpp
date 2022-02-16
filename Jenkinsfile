@@ -3,15 +3,10 @@ pipeline {
     agent any
 
     stages {
-		stage('Checkout') {
-			steps {
-				echo 'Checkout Source..'
-				checkout scm
-			}
-		}
         stage('Build') {
             steps {
                 echo 'Building..'
+				echo " Branch name ${BRANCH_NAME}"
             }
         }
         stage('Test') {
