@@ -1,16 +1,9 @@
-pipeline {
-    agent any
+peline {
+    agent { docker { image 'node:16.13.1-alpine' } }
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'amd64/ros:foxy'
-                    // Run the container on the node specified at the top-level of the Pipeline, in the same workspace, rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
+        stage('build') {
             steps {
-                sh 'git --version'
+                sh 'node --version'
             }
         }
     }
